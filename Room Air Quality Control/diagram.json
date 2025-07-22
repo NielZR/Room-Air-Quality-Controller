@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-breadboard-half",
+      "id": "bb1",
+      "top": -22.2,
+      "left": 290.8,
+      "attrs": {}
+    },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -9.6,
+      "left": 120.04,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -191.7,
+      "left": 311.4,
+      "attrs": {
+        "temperature": "16.3",
+        "humidity": "44.5"
+      }
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": -176.8,
+      "left": 386.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled2",
+      "top": 291.14,
+      "left": 499.43,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -42,
+      "left": 51.8,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": 47.45,
+      "rotate": 90,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-stepper-motor",
+      "id": "stepper1",
+      "top": 272.41,
+      "left": 317.23,
+      "attrs": {
+        "size": "17",
+        "arrow": "white"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "dht1:SDA",
+      "esp:13",
+      "purple",
+      [
+        "v28.8",
+        "h-239.9",
+        "v201.6"
+      ]
+    ],
+    [
+      "oled2:SCL",
+      "esp:22",
+      "blue",
+      [
+        "v-48",
+        "h-287.7",
+        "v-211.2"
+      ]
+    ],
+    [
+      "oled2:SDA",
+      "esp:21",
+      "cyan",
+      [
+        "v-38.4",
+        "h-287.93",
+        "v-192"
+      ]
+    ],
+    [
+      "bb1:bn.25",
+      "oled2:VCC",
+      "red",
+      [
+        "v27.5",
+        "h-46.4",
+        "v96"
+      ]
+    ],
+    [
+      "esp:5V",
+      "bb1:bn.1",
+      "red",
+      [
+        "h0.15",
+        "v19.2",
+        "h201.6",
+        "v-37.1"
+      ]
+    ],
+    [
+      "gas1:VCC",
+      "bb1:bn.24",
+      "red",
+      [
+        "v48",
+        "h192.9",
+        "v240",
+        "h-49.6"
+      ]
+    ],
+    [
+      "dht1:VCC",
+      "bb1:bn.23",
+      "red",
+      [
+        "v38.4",
+        "h316.8",
+        "v259.2",
+        "h-68.8"
+      ]
+    ],
+    [
+      "gas1:GND",
+      "bb1:bp.18",
+      "black",
+      [
+        "v19.2",
+        "h212",
+        "v297.6",
+        "h-144",
+        "v-75.9"
+      ]
+    ],
+    [
+      "esp:GND.1",
+      "bb1:bp.1",
+      "black",
+      [
+        "h-19.05",
+        "v86.4",
+        "h182.4",
+        "v-66.3"
+      ]
+    ],
+    [
+      "bb1:bp.3",
+      "led1:C",
+      "black",
+      [
+        "v104.7",
+        "h-276.8",
+        "v-230.4",
+        "h-0.4"
+      ]
+    ],
+    [
+      "led1:A",
+      "r1:1",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r1:2",
+      "esp:27",
+      "green",
+      [
+        "h0",
+        "v18"
+      ]
+    ],
+    [
+      "gas1:AOUT",
+      "esp:VP",
+      "yellow",
+      [
+        "v9.6",
+        "h-355.2",
+        "v105.6"
+      ]
+    ],
+    [
+      "bb1:bp.20",
+      "oled2:GND",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "bb1:bp.19",
+      "dht1:GND",
+      "black",
+      [
+        "v66.3",
+        "h126.4",
+        "v-182.4",
+        "h0",
+        "v-96",
+        "h-297.6"
+      ]
+    ],
+    [
+      "stepper1:A-",
+      "esp:19",
+      "gray",
+      [
+        "v9.6",
+        "h-124.8",
+        "v-307.2"
+      ]
+    ],
+    [
+      "esp:18",
+      "stepper1:A+",
+      "white",
+      [
+        "h28.8",
+        "v268.8",
+        "h0",
+        "v105.6",
+        "h144"
+      ]
+    ],
+    [
+      "esp:5",
+      "stepper1:B+",
+      "#8f4814",
+      [
+        "h19.2",
+        "v201.6",
+        "h0",
+        "v172.8",
+        "h163.2"
+      ]
+    ],
+    [
+      "esp:17",
+      "stepper1:B-",
+      "orange",
+      [
+        "h9.6",
+        "v172.8",
+        "h0",
+        "v201.6",
+        "h182.4"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
